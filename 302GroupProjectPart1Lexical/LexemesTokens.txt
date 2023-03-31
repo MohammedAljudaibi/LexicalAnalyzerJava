@@ -1,0 +1,54 @@
+File		ID
+informationFile		ID
+=		Assign
+new		new
+File		ID
+(		Left Parenthesis
+"intialInformation.txt"		String Literal
+)		Right Parenthesis
+;		Semi-Colon
+File		ID
+commandFile		ID
+=		Assign
+new		new
+File		ID
+(		Left Parenthesis
+"commands.txt"		String Literal
+)		Right Parenthesis
+;		Semi-Colon
+File		ID
+outputFile		ID
+=		Assign
+new		new
+File		ID
+(		Left Parenthesis
+"output.txt"		String Literal
+)		Right Parenthesis
+;		Semi-Colon
+Scanner		ID
+information		ID
+=		Assign
+new		new
+Scanner		ID
+(		Left Parenthesis
+informationFile		ID
+)		Right Parenthesis
+;		Semi-Colon
+Scanner		ID
+commands		ID
+=		Assign
+new		new
+Scanner		ID
+(		Left Parenthesis
+commandFile		ID
+)		Right Parenthesis
+;		Semi-Colon
+PrintWriter		ID
+output		ID
+=		Assign
+new		new
+PrintWriter		ID
+(		Left Parenthesis
+outputFile		ID
+)		Right Parenthesis
+;		Semi-Colon
