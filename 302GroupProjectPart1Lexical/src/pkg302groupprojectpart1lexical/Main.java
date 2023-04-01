@@ -739,18 +739,66 @@ public class Main {
     }
 
     public static boolean isChar(BufferedReader br) throws IOException {
-        //ToDo
-	return false;
+        br.mark(8); //Makes a mark in the reader
+        int c = br.read();
+        char la = (char) c;
+        if (la == '\\') {
+            c = br.read();
+            c = br.read();
+            la = (char) c;
+            if (la == '\'') {
+                br.reset();
+                return true;
+            }
+        } else {
+            c = br.read();
+            la = (char) c;
+            if (la == '\'') {
+                br.reset();
+                return true;
+            }
+        }
+        br.reset(); //Returns reader to marked spot
+        return false;
     }
 
     public static boolean isString(BufferedReader br) throws IOException {
-        //ToDo
-	return false;
+        br.mark(1024); //Makes a mark in the reader
+        int c = br.read();
+        char la = (char) c;
+        while (la != '\uffff' && la != '\n') {
+            if (la == '"') {
+                br.reset(); //Returns reader to marked spot 
+                return true;
+            }
+            c = br.read();
+            la = (char) c;
+        }
+        br.reset(); //Returns reader to marked spot
+        return false;
     }
 
     public static boolean isMultiLine(BufferedReader br) throws IOException {
-        //ToDo
-	return false;
+        br.mark(2048); //Makes a mark in the reader
+        int c = br.read();
+        char la = (char) c;
+        while (la != '\uffff') {
+            if (la == '*') {
+                c = br.read();
+                la = (char) c;
+                if (la == '/') {
+                    br.reset(); //Returns reader to marked spot 
+                    return true;
+                }
+            }
+            if (la == '*') {
+                continue;
+            }
+            c = br.read();
+            la = (char) c;
+        }
+        br.reset(); //Returns reader to marked spot
+        return false;
     }
 
     public static String toString(char[] a) {
