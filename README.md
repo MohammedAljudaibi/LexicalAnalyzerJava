@@ -130,8 +130,9 @@ The finite automaton works by reading a single character, LookAhead, from the in
 The lexer uses a binary search to identify Java keywords in the input, improving performance for large inputs.
 
 ## Functions Description
-1.  `isChar(BufferedReader br)` - ToDo
 
-2.  `isString(BufferedReader br)` - ToDo
+1.  `isChar(BufferedReader br)` - This method takes in a `BufferedReader` object `br` and checks whether the next character in the reader is a single-quoted character. It does this by reading the next character and checking if it is a backslash (`\`). It also checks whether the charecter is an acceptable UTF-16 character like `\u0000`. If either of these conditions is true, the method returns `true`, otherwise it returns `false`.
+
+2.  `isString(BufferedReader br)` - This method takes in a `BufferedReader` object `br` and checks whether the next characters in the reader form a string enclosed in double quotes (`"`). It does this by reading characters one by one until it reaches the end of the line or end of file (`\uffff`). If it encounters a double quote along the way, it returns `true`, otherwise it returns `false`.
     
-3.  `isMultiLine(BufferedReader br)` - ToDo
+3.  `isMultiLine(BufferedReader br)` - This method takes in a `BufferedReader` object `br` and checks whether the next characters in the reader form a multi-line comment enclosed in `/* */` delimiters. It does this by reading characters one by one until it reaches the end of the file (`\uffff`). If it encounters an asterisk (`*`) followed by a forward slash (`/`) along the way, it returns `true`, otherwise it returns `false`.
